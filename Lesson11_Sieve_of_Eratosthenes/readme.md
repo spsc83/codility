@@ -51,14 +51,14 @@ So I do not need to calculate the amount of non-divisors for 3 the second time. 
  def solution(A):
     N = len(A)
     num_dict = {}
-    for i in A:   # O(N)
+    for i in A:  
         if i not in num_dict:
             num_dict[i] = 1
         else:
             num_dict[i] += 1
     ele2amount_dict = {}
     ret=[]
-    for ele in A:  # O(N**1.5)
+    for ele in A:  
         if ele in ele2amount_dict:
             ret.append(ele2amount_dict[ele])
             continue
