@@ -92,3 +92,4 @@ So I do not need to calculate the amount of non-divisors for 3 the second time. 
     return ret
  ```
   
+![image](https://github.com/spsc83/codility/blob/main/Lesson11_Sieve_of_Eratosthenes/Screen%20Shot%202021-12-19%20at%2011.51.26%20PM.png)
