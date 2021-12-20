@@ -62,10 +62,10 @@ So I do not need to calculate the amount of non-divisors for 3 the second time. 
         if ele in ele2amount_dict:
             ret.append(ele2amount_dict[ele])
             continue
-        i = 1
         factorNum = 0
         
         # Here is something tricky. Do not use the while loop.  It is not as efficient as the for loop.
+        # i = 1
         # while i*i < ele:
         #     if ele % i == 0:
         #         otherFactor = int(ele/i)
