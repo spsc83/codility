@@ -164,7 +164,8 @@ P[i] ≤ Q[i].
             if product <= N:
                 semi_prime[product] = 1
             else:
-                break # Here is the magic to save the performance score! The rest 'j's are all bigger than the current 'j'. Not necessary to check the rest.
+                break # Here is the magic to save the performance score! 
+                #The rest 'j's are all bigger than the current 'j'. Not necessary to check the rest.
     prefix_sum = [0] * (N+1)
     for i in range(1,N+1):
         prefix_sum[i] = prefix_sum[i-1] + semi_prime[i]
@@ -199,7 +200,8 @@ P[i] ≤ Q[i].
                     if f2 == f1**2:
                         flag = True
                         break
-                if factor_num >4: # Here is the magic to save the performance score. You don't need to know the number of factors. You just need to know the number of factor is bigger than 4.
+                if factor_num >4: # Here is the magic to save the performance score!
+                #You don't need to know the exact number of factors. You just need to know the number of factor is bigger than 4.
                     flag = True
                     break
         if not flag and factor_num<5 and factor_num>2:
