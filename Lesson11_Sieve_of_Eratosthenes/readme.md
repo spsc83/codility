@@ -136,10 +136,10 @@ P[i] ≤ Q[i].
 
 * #### I found 2 solutions for this question:
 * ### Solution 1:
-1 Find the prime numbers from 1 to N using sieve method.
-2 Find the semiprime number from 1 to N using the prime numbers found in step 1.
-3 Calculate the prefix sum to accelerate the random slice
-4 Calculate the result with P, Q and prefix sum
+1 Find the prime numbers from 1 to N using sieve method.<br>
+2 Find the semiprime number from 1 to N using the prime numbers found in step 1.<br>
+3 Calculate the prefix sum to accelerate the random slice.<br>
+4 Calculate the result with P, Q and prefix sum<br>
 
  ```python
  def solution(N, P, Q):
@@ -179,10 +179,10 @@ P[i] ≤ Q[i].
  * ### Solution 2:
  Since semiprime number is the product of 2 prime numbers. So the two prime numbers are 2 factors of this semiprime number. So the factors of this semiprime number should be 1, prime number 1, prime number 2 and semiprime number. In particular case, prime number 1 == prime number 2, the factors of this semiprime number should be 1, prime number 2 and semiprime number.<br>
  Semiprime numbers should have 4 or 3 factors. For example, 4's factors are 1, 2, 4. And 6's factors are 1, 2, 3, 6. <br>
- But not all the numbers with 4 factors are semiprime numbers. For example, 8's factors are 1, 2, 4, 8. And 8 is not semiprime. In this case, the third factor is the second factor's square.
-1 Find the semiprime numbers from 1 to N according the above discription(lesson 10).
-2 Calculate the prefix sum to accelerate the random slice
-3 Calculate the result with P, Q and prefix sum
+ But not all the numbers with 4 factors are semiprime numbers. For example, 8's factors are 1, 2, 4, 8. And 8 is not semiprime. In this case, the third factor is the second factor's square.<br>
+1 Find the semiprime numbers from 1 to N according the above discription(lesson 10).<br>
+2 Calculate the prefix sum to accelerate the random slice.<br>
+3 Calculate the result with P, Q and prefix sum.<br>
  ```python
  def solution(N, P, Q):
    if N<4:
