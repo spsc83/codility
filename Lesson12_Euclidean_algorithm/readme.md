@@ -40,7 +40,7 @@ def solution(N, M): # This is the first thing come into my mind.
     return len(ret)
 ```
 
-
+* #### Good solution:
 Here are two facts:
 
 1 If he eat x times the position is (x-1) * M % N.
@@ -81,5 +81,5 @@ def solution(N, M):
 ```
 
 
-
+![image](https://github.com/spsc83/codility/blob/main/Lesson12_Euclidean_algorithm/Screen%20Shot%202021-12-26%20at%206.30.29%20PM.png)
 
