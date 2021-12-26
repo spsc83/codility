@@ -185,35 +185,37 @@ P[i] ≤ Q[i].
 3 Calculate the result with P, Q and prefix sum
  ```python
  def solution(N, P, Q):
-    if N<4:
-        return [0]*len(P)
-    semi_prime =[0] * (N+1)
-    for i in range(1, N+1):
-        factor_num = 0
-        flag = False
-        for f1 in range(1,int(i**0.5)+1):
-            if i % f1 == 0:
-                factor_num += 1
-                f2 = i / f1
-                if f2 != f1:
-                    factor_num += 1
-                    if f2 == f1**2:
-                        flag = True
-                        break
-                if factor_num >4: # Here is the magic to save the performance score!
-                #You don't need to know the exact number of factors. You just need to know the number of factor is bigger than 4.
-                    flag = True
-                    break
-        if not flag and factor_num<5 and factor_num>2:
-            semi_prime[i] = 1
+   if N<4:
+       return [0]*len(P)
+   semi_prime =[0] * (N+1)
+   for i in range(1, N+1):
+       factor_num = 0
+       flag = False
+       for f1 in range(1,int(i**0.5)+1):
+           if i % f1 == 0:
+               factor_num += 1
+               f2 = i / f1
+               if f2 != f1:
+                   factor_num += 1
+                   if f2 == f1**2:
+                       flag = True
+                       break
+               if factor_num >4: # Here is the magic to save the performance score!
+               #You don't need to know the exact number of factors. You just need to know the number of factor is bigger than 4.
+                   flag = True
+                   break
+       if not flag and factor_num<5 and factor_num>2:
+           semi_prime[i] = 1
 
-    prefix = [0]*(N+1)
-    for i in range(1, N+1):
-        prefix[i] = prefix[i-1] + semi_prime[i]
-    
-    result_list = [] 
-    for i, j in zip(P, Q):
-        result_list.append(prefix[j] - prefix[i-1])
-    return result_list
+   prefix = [0]*(N+1)
+   for i in range(1, N+1):
+       prefix[i] = prefix[i-1] + semi_prime[i]
+   
+   result_list = [] 
+   for i in range(len(P)):
+       p = P[i]
+       q = Q[i]
+       result_list.append(prefix[q] - prefix[p-1])
+   return result_list
  ```
 ![image](https://github.com/spsc83/codility/blob/main/Lesson11_Sieve_of_Eratosthenes/Screen%20Shot%202021-12-26%20at%203.39.14%20PM.png)
