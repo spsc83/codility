@@ -28,7 +28,8 @@ N and M are integers within the range [1..1,000,000,000].
 * #### Bad solution:
 It is very easy to simulate the process.
 ```python
-def solution(N, M):
+def solution(N, M): # This is the first thing come into my mind.
+# But obviousely this algrithm's performance is not good enough.
     ret = set([])
     i = 0
     while i not in ret:
@@ -38,7 +39,7 @@ def solution(N, M):
             i = i % N
     return len(ret)
 ```
-But obviousely this algrithm's performance is not good enough.
+
 
 Here are two facts:
 
@@ -60,7 +61,7 @@ N = 10, M = 6: 0, 6, 2, 8, 4, 0
 
 2 They all stop eating when they encounter an empty wrapper at position 0!
 
-So I am looking for a smallest x make (x - 1) * M % N == 0 where x - 1 > 0 and x - 1 is an integer. 
+So I am looking for a smallest x to make (x - 1) * M % N == 0 where x - 1 > 0 and x - 1 is an integer. 
 
 Oberviously, x - 1 = N can fit the equeition. But it is not the smallest because M and N may have common divisor. So we should reduce the fraction first. Then 
 
@@ -75,8 +76,7 @@ def gcd(a, b):
     else:
         return gcd(b, a % b)
 def solution(N, M):
-    g = gcd(N, M)
-    return int(N / g) 
+    return int(N / gcd(N, M)) 
         
 ```
 
