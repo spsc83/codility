@@ -216,3 +216,4 @@ P[i] ≤ Q[i].
         result_list.append(prefix[j] - prefix[i-1])
     return result_list
  ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson11_Sieve_of_Eratosthenes/Screen%20Shot%202021-12-26%20at%203.39.14%20PM.png)
