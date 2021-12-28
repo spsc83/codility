@@ -148,3 +148,4 @@ def solution(A, B):
 ```
 
 
+![image](https://github.com/spsc83/codility/blob/main/Lesson12_Euclidean_algorithm/Screen%20Shot%202021-12-28%20at%202.01.39%20PM.png)
