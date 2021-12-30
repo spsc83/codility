@@ -215,7 +215,7 @@ def ways(n, mem):
     return mem[n]
 
 def solution(A, B):
-    mem = [0, 1, 2]
+    mem = [0, 1, 2] # The value of mem[0] is useless. 
     ret = []
     for i in range(len(A)):
         a = A[i]
