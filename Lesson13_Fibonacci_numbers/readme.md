@@ -112,6 +112,7 @@ def solution(A):
 
 Everyone said BFS abount this question. I tried BFS, but the performance is not good enough. I will appreciate it if anyone can tell me what I did wrong.
 
+![image](https://github.com/spsc83/codility/blob/main/Lesson13_Fibonacci_numbers/Screen%20Shot%202021-12-30%20at%2010.57.00%20AM.png)
 
 ```python
 def fib(n):
