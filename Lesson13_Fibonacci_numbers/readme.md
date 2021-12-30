@@ -190,7 +190,7 @@ each element of array A is an integer within the range [1..L];
 each element of array B is an integer within the range [1..30].
 
 * #### Solution:
-1 Since you can only ascend by 1 or 2 rungs, there are only 2 ways to stand on rung N.
+1 Since you can only ascend by 1 or 2 rungs, there are only 2 "way"s to stand on rung N.
 
 N - 1  ---->  N
 
