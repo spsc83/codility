@@ -204,7 +204,7 @@ It is better to store the Fibonacci numbers somewhere. In my case, I use a list 
 
 2 Here is another trick:
 
-A[I] rungs modulo 2^B[I]: Since it is 2^B[I], it is better to use bitwise operation instead of %
+"the number of different ways of climbing the ladder with A[I] rungs modulo <strong>2^B[I]</strong>" Since the base number is 2, it is better to use bitwise operation instead of "%".
 
 ```python
 def ways(n, mem):
