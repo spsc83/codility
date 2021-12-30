@@ -104,10 +104,14 @@ def solution(A):
     else:
         return -1
 ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson13_Fibonacci_numbers/Screen%20Shot%202021-12-30%20at%2010.53.18%20AM.png)
+
+
+
+* #### BFS solution (performance not good):
 
 Everyone said BFS abount this question. I tried BFS, but the performance is not good enough. I will appreciate it if anyone can tell me what I did wrong.
 
-* #### BFS solution (performance not good):
 
 ```python
 def fib(n):
