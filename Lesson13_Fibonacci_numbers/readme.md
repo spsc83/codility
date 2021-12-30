@@ -223,3 +223,4 @@ def solution(A, B):
         ret.append(w - w2)
     return ret
 ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson13_Fibonacci_numbers/Screen%20Shot%202021-12-30%20at%2012.18.51%20PM.png)
