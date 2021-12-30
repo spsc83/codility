@@ -139,3 +139,87 @@ def solution(A):
                 queue.append([next_idx, counter + 1]) 
     return -1
 ```
+
+
+ # Ladder
+ You have to climb up a ladder. The ladder has exactly N rungs, numbered from 1 to N. With each step, you can ascend by one or two rungs. More precisely:
+
+with your first step you can stand on rung 1 or 2,
+if you are on rung K, you can move to rungs K + 1 or K + 2,
+finally you have to stand on rung N.
+Your task is to count the number of different ways of climbing to the top of the ladder.
+
+For example, given N = 4, you have five different ways of climbing, ascending by:
+
+1, 1, 1 and 1 rung,
+1, 1 and 2 rungs,
+1, 2 and 1 rung,
+2, 1 and 1 rungs, and
+2 and 2 rungs.
+Given N = 5, you have eight different ways of climbing, ascending by:
+
+1, 1, 1, 1 and 1 rung,
+1, 1, 1 and 2 rungs,
+1, 1, 2 and 1 rung,
+1, 2, 1 and 1 rung,
+1, 2 and 2 rungs,
+2, 1, 1 and 1 rungs,
+2, 1 and 2 rungs, and
+2, 2 and 1 rung.
+The number of different ways can be very large, so it is sufficient to return the result modulo 2P, for a given integer P.
+
+Write a function:
+
+def solution(A, B)
+
+that, given two non-empty arrays A and B of L integers, returns an array consisting of L integers specifying the consecutive answers; position I should contain the number of different ways of climbing the ladder with A[I] rungs modulo 2^B[I].
+
+For example, given L = 5 and:
+
+    A[0] = 4   B[0] = 3
+    A[1] = 4   B[1] = 2
+    A[2] = 5   B[2] = 4
+    A[3] = 5   B[3] = 3
+    A[4] = 1   B[4] = 1
+the function should return the sequence [5, 1, 8, 0, 1], as explained above.
+
+Write an efficient algorithm for the following assumptions:
+
+L is an integer within the range [1..50,000];
+each element of array A is an integer within the range [1..L];
+each element of array B is an integer within the range [1..30].
+
+* #### Solution:
+1 Since you can only ascend by 1 or 2 rungs, there are only 2 ways to stand on rung N.
+
+N - 1  ---->  N
+
+N - 2  ---->  N
+
+Let's say the ways to climb to rung N is W(n). It is obviously W(n) = W(n-1) + W(n-2). 
+
+The base cases are W(1) = 1, W(2) = 2. So they are Fibonacci numbers.
+
+It is better to store the Fibonacci numbers somewhere. In my case, I use a list to store it.
+
+2 Here is another trick:
+
+A[I] rungs modulo 2^B[I]: Since it is 2^B[I], it is better to use bitwise operation instead of %
+
+```python
+def ways(n, mem):
+    while len(mem) - 1 < n:
+        mem.append(mem[-1] + mem[-2])
+    return mem[n]
+
+def solution(A, B):
+    mem = [0, 1, 2]
+    ret = []
+    for i in range(len(A)):
+        a = A[i]
+        b = B[i]
+        w = ways(a, mem)
+        w2 = w>>b<<b
+        ret.append(w - w2)
+    return ret
+```
