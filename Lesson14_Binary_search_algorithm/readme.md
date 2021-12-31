@@ -89,3 +89,4 @@ def solution(K, M, A):
             result = mid
     return result
 ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson14_Binary_search_algorithm/Screen%20Shot%202021-12-31%20at%204.13.02%20PM.png)
