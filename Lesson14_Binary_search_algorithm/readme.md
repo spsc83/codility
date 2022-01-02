@@ -215,3 +215,4 @@ def solution(A, B, C):
             return -1
     return minNailNum
 ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson14_Binary_search_algorithm/Screen%20Shot%202022-01-02%20at%201.56.30%20PM.png)
