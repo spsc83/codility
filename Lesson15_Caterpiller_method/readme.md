@@ -162,3 +162,72 @@ def solution(M, A):
     return int(ret)
 ```
 ![image](https://github.com/spsc83/codility/blob/main/Lesson15_Caterpiller_method/Screen%20Shot%202022-01-04%20at%2012.06.58%20AM.png)
+
+---
+
+# CountTriangles
+An array A consisting of N integers is given. A triplet (P, Q, R) is triangular if it is possible to build a triangle with sides of lengths A[P], A[Q] and A[R]. In other words, triplet (P, Q, R) is triangular if 0 ≤ P < Q < R < N and:
+
+A[P] + A[Q] > A[R],
+A[Q] + A[R] > A[P],
+A[R] + A[P] > A[Q].
+For example, consider array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 12
+There are four triangular triplets that can be constructed from elements of this array, namely (0, 2, 4), (0, 2, 5), (0, 4, 5), and (2, 4, 5).
+
+Write a function:
+
+def solution(A)
+
+that, given an array A consisting of N integers, returns the number of triangular triplets in this array.
+
+For example, given array A such that:
+
+  A[0] = 10    A[1] = 2    A[2] = 5
+  A[3] = 1     A[4] = 8    A[5] = 12
+the function should return 4, as explained above.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [0..1,000];
+
+each element of array A is an integer within the range [1..1,000,000,000].
+
+* #### Solution:
+This is the same as the exercise in the reading material.
+
+The only difference is this time A is unsorted. So I sort A first.
+
+Then I implemanted the caterpillar method. For the indexs p, q, r (p<q<r),
+
+if A[p] + A[q] > A[r], (p, q, r) is a triplet. To find triplet, for a fixed p 
+
+and q, I will find the smallest r make A[r]>=A[p] + A[q] first time. Then r in 
+
+[q + 1, r - 1] can make triplets. The number of triplets is:
+```
+r - 1 - (q + 1) + 1 = r - q - 1
+```
+Then I will increase q. Here is something important:
+```
+array A (sorted):     p -------- q, q+1 --------- r-1, r----------
+If A[p] + A[q] > A[r-1], then A[p] + A[q+1] > A[r-1]. So there is no need to check 
+r in [q+2, r-1].
+```
+---
+```python 
+def solution(A):
+    A.sort()
+    ret = 0
+    for p in range(len(A) - 2):
+        r = p + 2
+        for q in range(p + 1, len(A)-1):
+            while r<len(A) and A[p] + A[q]> A[r]:
+                r += 1
+            ret += r - q - 1
+    return ret
+```
+  
+
