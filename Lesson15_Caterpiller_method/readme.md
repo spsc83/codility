@@ -229,5 +229,5 @@ def solution(A):
             ret += r - q - 1
     return ret
 ```
-  
+![image](https://github.com/spsc83/codility/blob/main/Lesson15_Caterpiller_method/Screen%20Shot%202022-01-04%20at%202.23.28%20PM.png)
 
