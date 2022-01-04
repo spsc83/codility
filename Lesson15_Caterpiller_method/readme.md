@@ -41,6 +41,8 @@ def solution(A):
         setA.add(abs(i))
     return len(setA)
 ```
+![image](https://github.com/spsc83/codility/blob/main/Lesson15_Caterpiller_method/Screen%20Shot%202022-01-04%20at%2012.13.58%20AM.png)
+
 ---
 # CountDistinctSlices
 An integer M and a non-empty array A consisting of N non-negative integers are given. All integers in array A are less than or equal to M.
