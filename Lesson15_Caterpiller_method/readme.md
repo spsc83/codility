@@ -231,3 +231,106 @@ def solution(A):
 ```
 ![image](https://github.com/spsc83/codility/blob/main/Lesson15_Caterpiller_method/Screen%20Shot%202022-01-04%20at%202.23.28%20PM.png)
 
+---
+
+# MinAbsSumOfTwo
+
+Let A be a non-empty array consisting of N integers.
+
+The abs sum of two for a pair of indices (P, Q) is the absolute value |A[P] + A[Q]|, for 0 ≤ P ≤ Q < N.
+
+For example, the following array A:
+
+  A[0] =  1
+  A[1] =  4
+  A[2] = -3
+has pairs of indices (0, 0), (0, 1), (0, 2), (1, 1), (1, 2), (2, 2). 
+The abs sum of two for the pair (0, 0) is A[0] + A[0] = |1 + 1| = 2. 
+The abs sum of two for the pair (0, 1) is A[0] + A[1] = |1 + 4| = 5. 
+The abs sum of two for the pair (0, 2) is A[0] + A[2] = |1 + (−3)| = 2. 
+The abs sum of two for the pair (1, 1) is A[1] + A[1] = |4 + 4| = 8. 
+The abs sum of two for the pair (1, 2) is A[1] + A[2] = |4 + (−3)| = 1. 
+The abs sum of two for the pair (2, 2) is A[2] + A[2] = |(−3) + (−3)| = 6. 
+
+Write a function:
+
+def solution(A)
+
+that, given a non-empty array A consisting of N integers, returns the minimal abs sum of two for any pair of indices in this array.
+
+For example, given the following array A:
+
+  A[0] =  1
+  A[1] =  4
+  A[2] = -3
+the function should return 1, as explained above.
+
+Given array A:
+
+  A[0] = -8
+  A[1] =  4
+  A[2] =  5
+  A[3] =-10
+  A[4] =  3
+the function should return |(−8) + 5| = 3.
+
+Write an efficient algorithm for the following assumptions:
+
+N is an integer within the range [1..100,000];
+
+each element of array A is an integer within the range [−1,000,000,000..1,000,000,000].
+
+* #### Solution:
+
+The abs sum of two must be bigger or equal to 0 always. So 0 is the possible minimal value. For example |-4 + 4|.
+
+If all elements are positive or negative the question would be very easy. 
+
+If there is only 1 element in the array, the question would be even more easy:)
+
+If partial elements are negative and partial elements are positive, that is the case we should consider.
+
+First I sorted the array. The negative pointer (pn) point to the most left element. The positive pointer (pp)
+
+point to the most right element.
+```
+A = [  -10    -8    3    4    5  ]
+       pn                     pp 
+```
+If abs(A[pn]) > abs(A[pp]) I will move pn to the right to make the abs sum smaller.
+
+If abs(A[pp]) > abs(A[pn]) I will move pp to the left to make the abs sum smaller.
+
+If abs(A[pn]) == abs(A[pp]) I got the global smallest abs sum. In this case, I should return directly.
+
+In the whold above process I will record the smallest abs sum.
+
+```python
+def solution(A):
+    if len(A) == 1:
+        return 2*abs(A[0])
+    A.sort()
+    a = 0
+    b = len(A) - 1
+    if A[0]>=0:
+        return A[0]*2
+    if A[-1]<=0:
+        return abs(A[-1] + A[-1])
+    ret = abs(A[a]+A[b])
+    while A[a]<=0 and A[b]>0:
+        if abs(A[a]) > abs(A[b]):
+            a += 1
+            curr_abs_sum = abs(A[a]+A[b])
+            if curr_abs_sum<ret:
+                ret = curr_abs_sum
+        elif abs(A[a]) == abs(A[b]):
+            return 0
+        else:
+            b -= 1
+            curr_abs_sum = abs(A[a]+A[b])
+            if curr_abs_sum<ret:
+                ret = curr_abs_sum
+    return ret
+```
+
+![image]()
