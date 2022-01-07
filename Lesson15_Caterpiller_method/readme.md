@@ -308,27 +308,27 @@ In the whold above process I will record the smallest abs sum.
 ```python
 def solution(A):
     if len(A) == 1:
-        return 2*abs(A[0])
+        return 2 * abs(A[0])
     A.sort()
-    a = 0
-    b = len(A) - 1
-    if A[0]>=0:
-        return A[0]*2
-    if A[-1]<=0:
-        return abs(A[-1] + A[-1])
-    ret = abs(A[a]+A[b])
-    while A[a]<=0 and A[b]>0:
-        if abs(A[a]) > abs(A[b]):
-            a += 1
-            curr_abs_sum = abs(A[a]+A[b])
-            if curr_abs_sum<ret:
+    pn = 0
+    pp = len(A) - 1
+    if A[0] >= 0:
+        return A[0] * 2
+    if A[-1] <= 0:
+        return abs(A[-1] * 2)
+    ret = abs(A[pn] + A[pp])
+    while A[pn] <= 0 and A[pp] > 0:
+        if abs(A[pn]) > abs(A[pp]):
+            pn += 1
+            curr_abs_sum = abs(A[pn] + A[pp])
+            if curr_abs_sum < ret:
                 ret = curr_abs_sum
-        elif abs(A[a]) == abs(A[b]):
+        elif abs(A[pn]) == abs(A[pp]):
             return 0
         else:
-            b -= 1
-            curr_abs_sum = abs(A[a]+A[b])
-            if curr_abs_sum<ret:
+            pp -= 1
+            curr_abs_sum = abs(A[pn] + A[pp])
+            if curr_abs_sum < ret:
                 ret = curr_abs_sum
     return ret
 ```
