@@ -333,4 +333,4 @@ def solution(A):
     return ret
 ```
 
-![image]()
+![image](https://github.com/spsc83/codility/blob/main/Lesson15_Caterpiller_method/Screen%20Shot%202022-01-07%20at%2012.16.27%20PM.png)
