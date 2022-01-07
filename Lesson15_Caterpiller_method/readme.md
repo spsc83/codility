@@ -297,13 +297,13 @@ point to the most right element.
 A = [  -10    -8    3    4    5  ]
        pn                     pp 
 ```
-If abs(A[pn]) > abs(A[pp]) I will move pn to the right to make the abs sum smaller.
+If abs(A[pn]) > abs(A[pp]) I should move pn to the right to make the abs sum smaller.
 
-If abs(A[pp]) > abs(A[pn]) I will move pp to the left to make the abs sum smaller.
+If abs(A[pn]) < abs(A[pp]) I should move pp to the left to make the abs sum smaller.
 
 If abs(A[pn]) == abs(A[pp]) I got the global smallest abs sum. In this case, I should return directly.
 
-In the whold above process I will record the smallest abs sum.
+In the whole above process I will keep recording the smallest abs sum.
 
 ```python
 def solution(A):
